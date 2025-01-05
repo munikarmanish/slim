@@ -570,10 +570,10 @@ void HandleRequest(struct HandlerArgs *args)
 
 kill:
     close(client_sock);
-    free(args);
     free(rsp);
     free(req_body);
     sem_post(args->sem);
+    free(args);
 }
 
 int start(char *ip) {
